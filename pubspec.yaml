@@ -1,6 +1,9 @@
 name: widget_spin
 description: "Widget Spin is a package that makes rotation animation around a widget."
 
+homepage: https://github.com/hydev777/widget_spin
+repository: https://github.com/hydev777/widget_spin
+
 publish_to: 'none'
 
 version: 1.0.0+1

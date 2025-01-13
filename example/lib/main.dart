@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widget_spin/widget.spin.dart';
+import 'package:widget_spin/widget_spin.dart';
 
 void main() {
   runApp(const WidgetSpinExample());
