@@ -22,6 +22,8 @@ class WidgetSpin extends StatefulWidget {
   /// The [duration] is the duration of the spinCount.
   ///
   /// The [child] is the widget to apply the spin animation.
+  /// 
+  /// The [controller] is the animation controller to control the spin widget
   const WidgetSpin({
     super.key,
     this.spinCount = 1,
