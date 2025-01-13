@@ -12,7 +12,8 @@ class WidgetSpinExample extends StatefulWidget {
   State<WidgetSpinExample> createState() => _WidgetSpinExampleState();
 }
 
-class _WidgetSpinExampleState extends State<WidgetSpinExample> with SingleTickerProviderStateMixin {
+class _WidgetSpinExampleState extends State<WidgetSpinExample>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _animationController = AnimationController(
     vsync: this,
     duration: Duration(seconds: 6),
@@ -61,6 +62,24 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample> with SingleTicker
                 ),
               ),
               WidgetSpin(
+                controller: _animationController,
+                repeat: true,
+                spinAxis: SpinAxis.x,
+                alignment: Alignment.topCenter,
+                duration: Duration(seconds: 10),
+                spinCount: 2,
+                is3D: true,
+                child: Container(
+                  width: 200,
+                  height: 200,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple,
+                  ),
+                  child: Text('This is a test 2'),
+                ),
+              ),
+              WidgetSpin(
                 spinCount: 10,
                 duration: Duration(seconds: 60),
                 spinAxis: SpinAxis.z,
@@ -70,7 +89,7 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample> with SingleTicker
                   height: 150,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Colors.red,
                   ),
                   child: Text('This is a test'),
                 ),
