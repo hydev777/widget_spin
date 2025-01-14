@@ -4,8 +4,6 @@ version: 1.0.0
 homepage: https://github.com/hydev777/widget_spin
 repository: https://github.com/hydev777/widget_spin
 
-publish_to: 'none'
-
 environment:
   sdk: ^3.6.0
 
