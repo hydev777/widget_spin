@@ -35,7 +35,7 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample>
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               WidgetSpin(
-                repeat: true,
+                duration: Duration(seconds: 60),
                 child: Container(
                   width: 200,
                   height: 200,
@@ -76,7 +76,7 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample>
                   decoration: BoxDecoration(
                     color: Colors.deepPurple,
                   ),
-                  child: Text('This is a test 2'),
+                  child: Text('This is a test 3'),
                 ),
               ),
               WidgetSpin(
@@ -91,7 +91,7 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample>
                   decoration: BoxDecoration(
                     color: Colors.red,
                   ),
-                  child: Text('This is a test'),
+                  child: Text('This is a test 4'),
                 ),
               ),
             ],
