@@ -1,5 +1,7 @@
 # Widget Spin
 
+[![widget_spin](https://img.shields.io/pub/v/widget_spin?label=widget_spin)](https://pub.dev/packages/widget_spin)
+
 Widget Spin is a Flutter package that enables you to effortlessly apply spinning animations to widgets along the X, Y, or Z axes. Customize spin duration, axis of rotation. Perfect for adding dynamic effects and interactivity to your UI!
 
 ## Preview
