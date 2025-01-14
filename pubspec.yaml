@@ -1,6 +1,6 @@
 name: widget_spin
 description: "Widget Spin is a package that makes rotation animation around a widget."
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/hydev777/widget_spin
 repository: https://github.com/hydev777/widget_spin
 
@@ -19,5 +19,5 @@ dev_dependencies:
   dart_code_metrics: ^5.7.6
   very_good_analysis: ^5.1.0
   flutter_lints: ^5.0.0
-  
+
 flutter:
