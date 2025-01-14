@@ -22,7 +22,7 @@ class WidgetSpin extends StatefulWidget {
   /// The [duration] is the duration of the spinCount.
   ///
   /// The [child] is the widget to apply the spin animation.
-  /// 
+  ///
   /// The [controller] is the animation controller to control the spin widget
   const WidgetSpin({
     super.key,
@@ -94,7 +94,8 @@ class _WidgetSpinState extends State<WidgetSpin>
         animation: _animationController,
         builder: (context, _) {
           Matrix4 matrix = Matrix4.identity();
-          double animationValue = (_animationController.value * 2) * widget.spinCount;
+          double animationValue =
+              (_animationController.value * 2) * widget.spinCount;
 
           if (widget.spinAxis == SpinAxis.x) {
             matrix = Matrix4.identity()
