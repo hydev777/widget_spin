@@ -29,7 +29,6 @@ Widget Spin is a Flutter package that enables you to effortlessly apply spinning
 ```dart
   WidgetSpin(
     controller: _animationController,
-    repeat: true,
     spinAxis: SpinAxis.x,
     alignment: Alignment.topCenter,
     duration: Duration(seconds: 10),

@@ -48,7 +48,6 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample>
               ),
               WidgetSpin(
                 controller: _animationController,
-                repeat: true,
                 spinAxis: SpinAxis.x,
                 is3D: true,
                 child: Container(
@@ -63,7 +62,6 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample>
               ),
               WidgetSpin(
                 controller: _animationController,
-                repeat: true,
                 spinAxis: SpinAxis.x,
                 alignment: Alignment.topCenter,
                 duration: Duration(seconds: 10),
@@ -81,6 +79,7 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample>
               ),
               WidgetSpin(
                 spinCount: 10,
+                repeat: true,
                 duration: Duration(seconds: 60),
                 spinAxis: SpinAxis.z,
                 alignment: Alignment.center,
