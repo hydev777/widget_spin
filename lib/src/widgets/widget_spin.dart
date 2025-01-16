@@ -21,7 +21,7 @@ class WidgetSpin extends StatefulWidget {
   ///
   /// The [duration] is the duration of the spinCount.
   ///
-  ///// The [curve] is the curve animation of the spin
+  /// The [curve] is the curve animation of the spin
   ///
   /// The [controller] is the animation controller to control the spin widget
   ///
