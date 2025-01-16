@@ -21,9 +21,11 @@ class WidgetSpin extends StatefulWidget {
   ///
   /// The [duration] is the duration of the spinCount.
   ///
-  /// The [child] is the widget to apply the spin animation.
+  ///// The [curve] is the curve animation of the spin
   ///
   /// The [controller] is the animation controller to control the spin widget
+  ///
+  /// The [child] is the widget to apply the spin animation.
   const WidgetSpin({
     super.key,
     this.spinCount = 1,
@@ -32,6 +34,7 @@ class WidgetSpin extends StatefulWidget {
     this.alignment = Alignment.center,
     this.repeat = false,
     this.duration = const Duration(seconds: 1),
+    this.curve = Curves.linear,
     this.controller,
     required this.child,
   });
@@ -54,11 +57,14 @@ class WidgetSpin extends StatefulWidget {
   /// The duration of the spinCount.
   final Duration duration;
 
+  /// The curve animation of the spin
+  final Curve curve;
+
+  /// The optional custom animation controller
+  final AnimationController? controller;
+
   /// The widget to apply the spin animation.
   final Widget child;
-
-  // The optional custom animation controller
-  final AnimationController? controller;
 
   @override
   State<WidgetSpin> createState() => _WidgetSpinState();
@@ -66,56 +72,54 @@ class WidgetSpin extends StatefulWidget {
 
 class _WidgetSpinState extends State<WidgetSpin>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _animationController;
+  late final AnimationController animationController;
+  late final Animation<double> animationValue =
+      Tween<double>(begin: 0, end: 1).animate(
+    CurvedAnimation(
+      parent: animationController,
+      curve: widget.curve,
+    ),
+  );
 
   @override
   void initState() {
     super.initState();
 
     if (widget.controller == null) {
-      _animationController = AnimationController(
+      animationController = AnimationController(
         vsync: this,
         duration: widget.duration,
       );
 
       if (widget.repeat) {
-        _animationController.repeat();
+        animationController.repeat();
       } else {
-        _animationController.forward();
+        animationController.forward();
       }
     } else {
-      _animationController = widget.controller!;
+      animationController = widget.controller!;
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: _animationController,
+        animation: animationController,
         builder: (context, _) {
           Matrix4 matrix = Matrix4.identity();
-          double animationValue =
-              (_animationController.value * 2) * widget.spinCount;
+          double rotationValue =
+              ((animationValue.value * 2) * widget.spinCount) * pi;
 
           if (widget.spinAxis == SpinAxis.x) {
-            matrix = Matrix4.identity()
-              ..rotateX(
-                animationValue * pi,
-              );
+            matrix = Matrix4.identity()..rotateX(rotationValue);
           }
 
           if (widget.spinAxis == SpinAxis.z) {
-            matrix = Matrix4.identity()
-              ..rotateZ(
-                animationValue * pi,
-              );
+            matrix = Matrix4.identity()..rotateZ(rotationValue);
           }
 
           if (widget.spinAxis == SpinAxis.y) {
-            matrix = Matrix4.identity()
-              ..rotateY(
-                animationValue * pi,
-              );
+            matrix = Matrix4.identity()..rotateY(rotationValue);
           }
 
           if (widget.is3D) {
@@ -132,7 +136,7 @@ class _WidgetSpinState extends State<WidgetSpin>
 
   @override
   void dispose() {
-    _animationController.dispose();
+    animationController.dispose();
     super.dispose();
   }
 }
