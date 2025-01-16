@@ -32,6 +32,7 @@ Widget Spin is a Flutter package that enables you to effortlessly apply spinning
     spinAxis: SpinAxis.x,
     alignment: Alignment.topCenter,
     duration: Duration(seconds: 10),
+    curve: ,
     spinCount: 2,
     is3D: true,
     child: Container(

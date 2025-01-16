@@ -65,6 +65,7 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample>
                 spinAxis: SpinAxis.x,
                 alignment: Alignment.topCenter,
                 duration: Duration(seconds: 10),
+                curve: Curves.easeInToLinear,
                 spinCount: 2,
                 is3D: true,
                 child: Container(
@@ -80,7 +81,8 @@ class _WidgetSpinExampleState extends State<WidgetSpinExample>
               WidgetSpin(
                 spinCount: 10,
                 repeat: true,
-                duration: Duration(seconds: 60),
+                curve: Curves.elasticIn,
+                duration: Duration(seconds: 4),
                 spinAxis: SpinAxis.z,
                 alignment: Alignment.center,
                 child: Container(
