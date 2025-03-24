@@ -1,4 +1,4 @@
-# 1.1.1
+# 1.1.2
 - Updated Readme
 # 1.1.1
 - Fixed issue with 3d property not being applied
