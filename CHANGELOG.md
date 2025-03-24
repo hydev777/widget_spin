@@ -1,4 +1,6 @@
 # 1.1.1
+- Updated Readme
+# 1.1.1
 - Fixed issue with 3d property not being applied
 # 1.1.0
 - Added curve animation
