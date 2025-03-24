@@ -80,6 +80,7 @@ class _WidgetSpinState extends State<WidgetSpin>
       curve: widget.curve,
     ),
   );
+  late Matrix4 matrix;
 
   @override
   void initState() {
@@ -106,24 +107,26 @@ class _WidgetSpinState extends State<WidgetSpin>
     return AnimatedBuilder(
         animation: animationController,
         builder: (context, _) {
-          Matrix4 matrix = Matrix4.identity();
+          if (widget.is3D) {
+            matrix = Matrix4.identity()
+            ..setEntry(3, 2, 0.001);
+          } else {
+            matrix = Matrix4.identity();
+          }
+
           double rotationValue =
               ((animationValue.value * 2) * widget.spinCount) * pi;
 
           if (widget.spinAxis == SpinAxis.x) {
-            matrix = Matrix4.identity()..rotateX(rotationValue);
+            matrix = matrix..rotateX(rotationValue);
           }
 
           if (widget.spinAxis == SpinAxis.z) {
-            matrix = Matrix4.identity()..rotateZ(rotationValue);
+            matrix = matrix..rotateZ(rotationValue);
           }
 
           if (widget.spinAxis == SpinAxis.y) {
-            matrix = Matrix4.identity()..rotateY(rotationValue);
-          }
-
-          if (widget.is3D) {
-            matrix.setEntry(3, 2, 0.001);
+            matrix = matrix..rotateY(rotationValue);
           }
 
           return Transform(
