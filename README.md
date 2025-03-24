@@ -6,7 +6,7 @@ Widget Spin is a Flutter package that enables you to effortlessly apply spinning
 
 ## Preview
 
-![widget_spin_preview_2](https://github.com/user-attachments/assets/32636929-1516-460f-a2fe-2c0148d58ada)
+![widget_spin_preview](https://github.com/user-attachments/assets/ab43a389-970f-4a2b-b904-f6ce7e19b6e0)
 
 ## How to use?
 
