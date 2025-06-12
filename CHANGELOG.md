@@ -1,3 +1,5 @@
+# 1.2.0
+- Added isReverse property
 # 1.1.2
 - Updated Readme
 # 1.1.1
