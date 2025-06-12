@@ -30,6 +30,7 @@ class WidgetSpin extends StatefulWidget {
     super.key,
     this.spinCount = 1,
     this.is3D = false,
+    this.isReversed = false,
     this.spinAxis = SpinAxis.y,
     this.alignment = Alignment.center,
     this.repeat = false,
@@ -42,8 +43,11 @@ class WidgetSpin extends StatefulWidget {
   /// The number of spins the widget will have per duration cicle.
   final int spinCount;
 
-  /// If the widget will have perspective
+  /// If the widget will have perspective.
   final bool is3D;
+
+  /// If the spin is heading toward the opposite direction.
+  final bool isReversed;
 
   /// The axis (x, y or z) in chich the spin will be applied to the widget.
   final SpinAxis spinAxis;
@@ -57,10 +61,10 @@ class WidgetSpin extends StatefulWidget {
   /// The duration of the spinCount.
   final Duration duration;
 
-  /// The curve animation of the spin
+  /// The curve animation of the spin.
   final Curve curve;
 
-  /// The optional custom animation controller
+  /// The optional custom animation controller.
   final AnimationController? controller;
 
   /// The widget to apply the spin animation.
@@ -108,14 +112,17 @@ class _WidgetSpinState extends State<WidgetSpin>
         animation: animationController,
         builder: (context, _) {
           if (widget.is3D) {
-            matrix = Matrix4.identity()
-            ..setEntry(3, 2, 0.001);
+            matrix = Matrix4.identity()..setEntry(3, 2, 0.001);
           } else {
             matrix = Matrix4.identity();
           }
 
           double rotationValue =
               ((animationValue.value * 2) * widget.spinCount) * pi;
+
+          if(widget.isReversed) {
+            rotationValue = -rotationValue;
+          }
 
           if (widget.spinAxis == SpinAxis.x) {
             matrix = matrix..rotateX(rotationValue);
